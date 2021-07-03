@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".ui.home.FeedbackFragment"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_title_bar_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorNavbar"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageButton
+            android:id="@+id/ib_back_feedback"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="3dp"
+            android:src="@drawable/ic_arrow_back_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            />
+
+        <TextView
+            android:id="@+id/tv_title_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            style="@style/TitleTextStyle"
+            android:text="@string/feedback"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ib_back_feedback"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
