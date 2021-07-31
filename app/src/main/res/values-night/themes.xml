@@ -15,7 +15,12 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="fullscreenBackgroundColor">@color/colorBackground</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="fullscreenBackgroundColor">@color/colorTheme</item>
         <item name="fullscreenTextColor">@color/white</item>
     </style>
 </resources>

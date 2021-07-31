@@ -14,13 +14,14 @@
     <color name="black_overlay">#66000000</color>
 
     
-    <color name="colorTheme">#232323</color>
-    <color name="colorSubTheme">#454545</color>
+    <color name="colorTheme">#F2D36F</color>
+    <color name="colorDarkTheme">#E3BD41</color>
+    <color name="colorWhite">#FEFEFE</color>
+    <color name="colorGrey">#787878</color>
     <color name="colorText">#FFFFFE</color>
-    <color name="colorGrey">#E4E4E4</color>
-    <color name="colorTextGrey">#FBFBFB</color>
-
+    <color name="colorTextGrey">#C8C8C8</color>
+    <color name="colorTextBlack">#323232</color>
     <color name="colorNavbar">#232323</color>
-    <color name="colorBackground">#454545</color>
+    <color name="colorBackground">#FEFEFE</color>
 
 </resources>

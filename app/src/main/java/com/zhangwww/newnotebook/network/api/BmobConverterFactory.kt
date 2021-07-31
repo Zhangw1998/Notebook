@@ -24,12 +24,10 @@ class BmobConverterFactory : Converter.Factory() {
     private val gson = Gson()
 
     companion object {
-
         @JvmStatic
         fun create(): Converter.Factory {
             return BmobConverterFactory()
         }
-
     }
 
     override fun responseBodyConverter(

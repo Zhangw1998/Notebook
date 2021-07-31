@@ -1,6 +1,7 @@
 package com.zhangwww.newnotebook.base
 
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.BarUtils
@@ -14,7 +15,7 @@ import com.blankj.utilcode.util.BarUtils
  * @UpdateRemark:
  * @Version:        1.0
  */
-abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(layoutId) {
+abstract class BaseActivity : AppCompatActivity() {
 
     protected open fun initData() {}
 
@@ -24,7 +25,6 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        BarUtils.transparentStatusBar(this)
         initData()
         initView()
         initAction()

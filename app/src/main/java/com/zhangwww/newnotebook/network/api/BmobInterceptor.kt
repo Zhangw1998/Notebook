@@ -14,7 +14,6 @@ class BmobInterceptor : Interceptor {
      * X-Bmob-Secret-Key	string	Bmob控制台应用密匙 Secret Key
      * X-Bmob-Safe-Sign	string	md5 签名，签名规则 md5(url + timeStamp + safeToken + noncestr)
      */
-
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val originalUrl = originalRequest.url.toString()

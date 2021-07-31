@@ -8,7 +8,7 @@ import com.zhangwww.newnotebook.util.viewbinding.viewBinding
 
 class RecordFragment : BaseFragment(R.layout.fragment_record) {
 
-    private val mViewBinding by viewBinding(FragmentRecordBinding::bind)
+    private val mBinding by viewBinding(FragmentRecordBinding::bind)
 
     companion object {
 

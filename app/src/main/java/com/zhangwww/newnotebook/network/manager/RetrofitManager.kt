@@ -1,4 +1,4 @@
-package com.zhangwww.networkmodule.manager
+package com.zhangwww.newnotebook.network.manager
 
 import android.util.Log
 import com.zhangwww.newnotebook.network.factory.CallFactoryProxy
@@ -46,10 +46,8 @@ object RetrofitManager {
     fun <T> createByMultiUrls(baseUrls: HashMap<String, String>, clazz: Class<T>): T {
         if (baseUrls.isEmpty()) {
             throw IllegalArgumentException("urls can not be empty")
-        } else {
-
-            return buildRetrofit(baseUrls).create(clazz)
         }
+        return buildRetrofit(baseUrls).create(clazz)
     }
 
     inline fun <reified T> create(): T = create(T::class.java)
