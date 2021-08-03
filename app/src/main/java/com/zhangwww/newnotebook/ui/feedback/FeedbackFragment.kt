@@ -1,4 +1,4 @@
-package com.zhangwww.newnotebook.ui.home
+package com.zhangwww.newnotebook.ui.feedback
 
 import com.zhangwww.newnotebook.R
 import com.zhangwww.newnotebook.base.BaseFragment

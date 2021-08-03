@@ -1,8 +1,10 @@
 package com.zhangwww.newnotebook.ui.home
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.zhangwww.newnotebook.R
 import com.zhangwww.newnotebook.data.DiaryCategoryModel
 import java.util.*
 
@@ -12,6 +14,7 @@ class HomeViewModel : ViewModel() {
     private val mYearLiveData = MutableLiveData<Int>()
     private val mMonthLiveData = MutableLiveData<Int>()
     private val mDayLiveData = MutableLiveData<Int>()
+    private val mMaxDay: Int
 
     val yearLiveData: LiveData<Int>
         get() = mYearLiveData
@@ -26,11 +29,11 @@ class HomeViewModel : ViewModel() {
         val calendar = Calendar.getInstance()
         mYearLiveData.value = calendar.get(Calendar.YEAR)
         mMonthLiveData.value = calendar.get(Calendar.MONTH) + 1
-        mDayLiveData.value = calendar.get(Calendar.DAY_OF_MONTH)
+        mMaxDay = calendar.get(Calendar.DAY_OF_MONTH)
+        mDayLiveData.value = mMaxDay
     }
 
-//    fun getDateList(): List<Int> = List(size = mDayLiveData.value ?: 0, init = { it + 1 })
-    fun getDateList(): List<Int> = List(size = 30 ?: 0, init = { it + 1 })
+    fun getDateList(): List<Int> = List(size = mDayLiveData.value ?: 0, init = { it + 1 })
 
     fun getCategoryList(): List<DiaryCategoryModel> {
         val cover1 = "https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF"
@@ -40,4 +43,15 @@ class HomeViewModel : ViewModel() {
         return listOf(categoryModel1, categoryModel2)
     }
 
+    fun getTitle(context: Context, day: Int): String {
+        return when (val count = mMaxDay - day) {
+            0 -> context.getString(R.string.today)
+            1 -> context.getString(R.string.yesterday)
+            else -> context.getString(R.string.daysBefore, count)
+        }
+    }
+
+    fun setSelectDay(day: Int) {
+        mDayLiveData.value = day
+    }
 }

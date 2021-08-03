@@ -4,10 +4,12 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
     <string name="feedback">Feedback</string>
     <string name="diary">日记本</string>
     <string name="mine">我的</string>
     <string name="countOfDay">%d\n日</string>
     <string name="yearAndMonth">%d年%d月</string>
     <string name="crateDiaryTips">今天过的怎么样</string>
+    <string name="daysBefore">%d天前</string>
 </resources>

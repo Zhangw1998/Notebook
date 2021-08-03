@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".ui.home.FeedbackFragment"
+    tools:context=".ui.feedback.FeedbackFragment"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout

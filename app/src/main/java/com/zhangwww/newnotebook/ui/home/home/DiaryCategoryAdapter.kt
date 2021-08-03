@@ -1,4 +1,4 @@
-package com.zhangwww.newnotebook.ui.home.diary
+package com.zhangwww.newnotebook.ui.home.home
 
 import android.widget.TextView
 import com.bumptech.glide.Glide

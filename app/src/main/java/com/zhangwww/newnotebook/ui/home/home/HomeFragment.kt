@@ -1,9 +1,9 @@
-package com.zhangwww.newnotebook.ui.home.diary
+package com.zhangwww.newnotebook.ui.home.home
 
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.blankj.utilcode.util.BarUtils
 import com.leochuan.CenterSnapHelper
+import com.leochuan.ScaleLayoutManager
 import com.zhangwww.newnotebook.R
 import com.zhangwww.newnotebook.base.BaseFragment
 import com.zhangwww.newnotebook.databinding.FragmentHomeBinding
@@ -31,7 +31,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 addData(dataList)
                 setSelectItem(dataList.size - 1)
                 onItemClick = {
-                    this.setSelectItem(this.getItemPosition(it))
+                    mViewModel.setSelectDay(it)
                 }
             }
             scrollToPosition(dataList.size - 1)
@@ -41,12 +41,12 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             adapter = DiaryCategoryAdapter().apply {
                 addData(mViewModel.getCategoryList())
                 onItemClick = {
-                    findNavController().navigate(R.id.action_navigation_home_to_diaryCategoryFragment)
+
                 }
             }
-//            layoutManager = ScaleLayoutManager.Builder(context, 20)
-//                .setMinScale(0.8f)
-//                .build()
+            layoutManager = ScaleLayoutManager.Builder(context, 20)
+                .setMinScale(0.8f)
+                .build()
             CenterSnapHelper().attachToRecyclerView(this)
         }
     }
@@ -59,6 +59,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         mViewModel.monthLiveData.observe(this) {
             mBinding.tvDate.text =
                 getString(R.string.yearAndMonth, mViewModel.yearLiveData.value, it)
+        }
+        mViewModel.dayLiveData.observe(this) {
+            mBinding.tvTitleHome.text = mViewModel.getTitle(requireContext(), it)
         }
         mBinding.flCreateContainer.setOnClickListener {
             // todo 新增日记

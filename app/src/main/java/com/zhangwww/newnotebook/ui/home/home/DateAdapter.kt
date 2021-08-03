@@ -1,4 +1,4 @@
-package com.zhangwww.newnotebook.ui.home.diary
+package com.zhangwww.newnotebook.ui.home.home
 
 import android.graphics.Color
 import android.widget.TextView
@@ -8,6 +8,7 @@ import com.google.android.material.card.MaterialCardView
 import com.zhangwww.newnotebook.R
 import com.zhangwww.newnotebook.extensions.dp
 import com.zhangwww.newnotebook.extensions.getCompatColor
+import com.zhangwww.newnotebook.extensions.updateItem
 
 class DateAdapter : BaseQuickAdapter<Int, BaseViewHolder>(R.layout.item_day) {
 
@@ -22,6 +23,7 @@ class DateAdapter : BaseQuickAdapter<Int, BaseViewHolder>(R.layout.item_day) {
             setItemUnselected(item, holder)
         }
         holder.itemView.setOnClickListener {
+            setSelectItem(this.getItemPosition(item))
             onItemClick?.invoke(item)
 
         }
@@ -56,16 +58,12 @@ class DateAdapter : BaseQuickAdapter<Int, BaseViewHolder>(R.layout.item_day) {
             mSelectedPosition = position
             return
         }
-        recyclerView.findViewHolderForLayoutPosition(mSelectedPosition)?.let {
-            if (it is BaseViewHolder) {
-                setItemUnselected(getItem(mSelectedPosition), it)
-            }
+        recyclerView.updateItem<BaseViewHolder>(mSelectedPosition) {
+            setItemUnselected(getItem(mSelectedPosition), it)
         }
         mSelectedPosition = position
-        recyclerView.findViewHolderForLayoutPosition(position)?.let {
-            if (it is BaseViewHolder) {
-                setItemSelected(getItem(position), it)
-            }
+        recyclerView.updateItem<BaseViewHolder>(mSelectedPosition) {
+            setItemSelected(getItem(position), it)
         }
     }
 }
