@@ -9,6 +9,7 @@ import com.zhangwww.newnotebook.base.BaseFragment
 import com.zhangwww.newnotebook.databinding.FragmentHomeBinding
 import com.zhangwww.newnotebook.extensions.getCompatColor
 import com.zhangwww.newnotebook.ui.home.HomeViewModel
+import com.zhangwww.newnotebook.ui.writing.WritingActivity
 import com.zhangwww.newnotebook.util.viewbinding.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -64,7 +65,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             mBinding.tvTitleHome.text = mViewModel.getTitle(requireContext(), it)
         }
         mBinding.flCreateContainer.setOnClickListener {
-            // todo 新增日记
+            WritingActivity.launchActivity(requireContext(), mViewModel.currentTimestamp)
         }
     }
 

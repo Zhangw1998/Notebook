@@ -4,12 +4,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.zhangwww.newnotebook.App
-import com.zhangwww.newnotebook.data.RecordModel
+import com.zhangwww.newnotebook.data.DiaryModel
 
-@Database(entities = [RecordModel::class], version = 1)
+@Database(entities = [DiaryModel::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun recordDao(): RecordDao
+    abstract fun dairyDao(): DairyDao
 
     companion object {
 
@@ -23,7 +23,7 @@ abstract class AppDatabase : RoomDatabase() {
             ).build()
         }
 
-        fun recordDao() = instance.recordDao()
+        fun dairyDao() = instance.dairyDao()
 
 
     }

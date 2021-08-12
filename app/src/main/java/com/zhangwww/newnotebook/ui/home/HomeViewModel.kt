@@ -25,6 +25,21 @@ class HomeViewModel : ViewModel() {
     val dayLiveData: LiveData<Int>
         get() = mDayLiveData
 
+    val currentTimestamp: Long
+        get() {
+            val calendar = Calendar.getInstance()
+            yearLiveData.value?.let {
+                calendar.set(Calendar.YEAR, it)
+            }
+            monthLiveData.value?.let {
+                calendar.set(Calendar.MONTH, it - 1)
+            }
+            dayLiveData.value?.let {
+                calendar.set(Calendar.DAY_OF_MONTH, it)
+            }
+            return calendar.timeInMillis
+        }
+
     init {
         val calendar = Calendar.getInstance()
         mYearLiveData.value = calendar.get(Calendar.YEAR)
